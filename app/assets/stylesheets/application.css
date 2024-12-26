@@ -1,0 +1,287 @@
+/* General Styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: #f5f5f5;
+    min-height: 70%; 
+    background-color: #1e1e1e;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Header Styling */
+  header {
+    display: flex;
+    justify-content: space-between; /* Space out the logo, title, and logout button */
+    align-items: center; /* Vertically align items */
+    background-color: #2a2a2a; /* Dark Grey */
+    padding: 20px;
+    border-bottom: 3px solid #d4af37; /* Gold */
+  }
+  
+  header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  header img {
+    height: 120px;
+    margin-right: 20px;
+  }
+  
+  header ul {
+    display: flex;
+    gap: 20px;
+  }
+  
+  header li {
+    font-size: 18px;
+  }
+  
+  header a {
+    color: #d4af37; /* Gold */
+    font-weight: bold;
+  }
+  
+  header a:hover {
+    color: #fff; /* White */
+  }
+  
+  .logout-button {
+    right: 60px; 
+    display: block;              /* Make the link fill the container */
+    padding: 0.75rem 1.5rem;     /* Add padding for a button-like appearance */
+    background-color: gold;      /* Button color */
+    color: #1c1c1c;              /* Text color (black) */
+    font-family: 'Roboto', sans-serif; /* Modern font */
+    font-weight: bold;           /* Bold text */
+    text-align: center;          /* Center-align the text */
+    text-decoration: none;       /* Remove underline */
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 5px;
+    text-transform: uppercase; /* Uppercase text for logout */
+    transition: background-color 0.3s; /* Smooth background color change */
+
+  }
+  
+#to-right {
+    margin-left: auto;
+    right: 50px;
+    left: 80%;
+}
+
+  .logout-button:hover {
+    background-color: darkgoldenrod; /* Darker gold on hover */
+    color: white;                    /* Change text to white for contrast */
+    border-color: darkgoldenrod;     /* Match border to background on hover */
+  }
+  
+  /* Main Content */
+  main {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  h1, h2, h3 {
+    color: #d4af37; /* Gold */
+  }
+  
+  p {
+    line-height: 1.6;
+  }
+  
+  /* Footer Styling */
+  footer {
+    background-color: #2a2a2a; /* Dark Grey */
+    color: #999; /* Light Grey */
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+    border-top: 3px solid #d4af37; /* Gold */
+  }
+  
+  footer a {
+    color: #d4af37;
+  }
+  
+  footer a:hover {
+    color: #fff;
+  }
+
+/* Container for the entire form */
+.section {
+    background-color: #1c1c1c;        /* Dark gray background for contrast */
+    border: 2px solid gold;           /* Gold border to match the theme */
+    border-radius: 8px;               /* Rounded corners */
+    padding: 2rem;                    /* Padding around the form */
+    margin: 2rem auto;                /* Center the form with margin */
+    width: 50%;                       /* Form takes up 50% of the width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    font-family: 'Roboto', sans-serif; /* Modern font */
+  }
+  
+  h1 {
+    color: gold;                      /* Gold color for the title */
+    text-align: center;                /* Center the title */
+    margin-bottom: 1.5rem;             /* Space below the title */
+  }
+  
+  /* Error message styling */
+  ul {
+    color: red;                       /* Red color for error messages */
+    padding-left: 1rem;
+    list-style-type: none;             /* Remove bullet points */
+  }
+  
+  li {
+    margin-bottom: 0.5rem;             /* Space between error messages */
+  }
+  
+  /* Label and input styles */
+  div {
+    margin-bottom: 1rem;               /* Space between form fields */
+  }
+  
+  label {
+    color: #f5f5f5;                   /* Light gray text for labels */
+    display: block;                    /* Block-level label */
+    margin-bottom: 0.5rem;             /* Space between label and input */
+    font-size: 1rem;                   /* Label font size */
+  }
+  
+  input[type="text"], textarea, select {
+    width: 100%;                       /* Make the form fields take up full width */
+    padding: 0.75rem;                  /* Add padding for a button-like feel */
+    background-color: #333333;         /* Dark background for fields */
+    color: #f5f5f5;                    /* Light gray text */
+    border: 2px solid #333333;         /* Dark border */
+    border-radius: 4px;                /* Slightly rounded corners */
+    font-size: 1rem;                   /* Input text size */
+    transition: border-color 0.3s ease; /* Smooth border color change on focus */
+  }
+  
+  input[type="text"]:focus, textarea:focus, select:focus {
+    border-color: gold;                /* Gold border when focused */
+    outline: none;                     /* Remove default focus outline */
+  }
+  
+  /* Submit button styling */
+  input[type="submit"] {
+    background-color: gold;            /* Gold background for the button */
+    color: #1c1c1c;                    /* Dark text for the button */
+    padding: 1rem 2rem;                /* Padding for the button */
+    border: none;                      /* Remove default border */
+    border-radius: 8px;                /* Rounded corners */
+    font-size: 1.2rem;                 /* Larger text on the button */
+    cursor: pointer;                   /* Pointer cursor for clickability */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+  }
+  
+  input[type="submit"]:hover {
+    background-color: darkgoldenrod;    /* Darker gold on hover */
+    color: white;                       /* Change text color to white on hover */
+  }
+  
+  textarea {
+    height: 150px;                     /* Set a height for the text area */
+  }
+  
+  /* Optional: Styling for datetime_select fields */
+  input[type="datetime-local"] {
+    background-color: #333333;         /* Same background as text fields */
+    border: 2px solid #333333;         /* Dark border */
+    border-radius: 4px;                /* Rounded corners */
+    padding: 0.75rem;                  /* Padding for the field */
+    color: #f5f5f5;                    /* Light text */
+  }
+  
+
+  #create-new-button {
+    display: inline-block;       /* Make the container behave like a button */
+  }
+  
+  .button-link {
+    display: block;              /* Make the link fill the container */
+    padding: 0.75rem 1.5rem;     /* Add padding for a button-like appearance */
+    background-color: gold;      /* Button color */
+    color: #1c1c1c;              /* Text color (black) */
+    font-family: 'Roboto', sans-serif; /* Modern font */
+    font-weight: bold;           /* Bold text */
+    text-align: center;          /* Center-align the text */
+    text-decoration: none;       /* Remove underline */
+    border: 2px solid gold;      /* Border matching the button color */
+    border-radius: 8px;          /* Rounded corners */
+    transition: all 0.3s ease;   /* Smooth hover effect */
+    cursor: pointer;             /* Pointer cursor for clickability */
+  }
+  
+  .button-link:hover {
+    background-color: darkgoldenrod; /* Darker gold on hover */
+    color: white;                    /* Change text to white for contrast */
+    border-color: darkgoldenrod;     /* Match border to background on hover */
+  }
+
+  #title {
+    font-size: 2.5em; /* Larger font size for the title */
+    font-weight: bold; /* Bold title */
+    color: gold; /* Gold text color */
+    text-transform: uppercase; /* Uppercase for a clean, modern look */
+    letter-spacing: 1px; /* Slight letter spacing */
+    margin: 0; /* Remove any default margins */
+    flex-grow: 1; /* Allow title to take available space */
+  }
+
+  .assignment-info-box {
+    background-color: #1c1c1c; /* Dark gray background for contrast */
+    border: 2px solid gold;    /* Gold border for a premium look */
+    border-radius: 8px;        /* Rounded corners */
+    padding: 1rem;             /* Space inside the box */
+    margin: 1rem 0;            /* Space between boxes */
+    color: #f5f5f5;            /* Light gray text for readability */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    list-style: none;          /* Remove default list styles */
+    font-family: 'Roboto', sans-serif; /* Modern font style */
+    font-size: 1rem;           /* Comfortable text size */
+  }
+  
+  .assignment-info-box a {
+    color: gold;               /* Gold links to match the theme */
+    text-decoration: none;     /* Remove underline */
+    font-weight: bold;         /* Make links stand out */
+    transition: color 0.3s ease; /* Smooth color change on hover */
+  }
+  
+  .assignment-info-box a:hover {
+    color: darkgoldenrod;      /* Slightly darker gold on hover */
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    header nav {
+      flex-direction: column;
+    }
+  
+    header ul {
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    main {
+      padding: 20px;
+    }
+  }
+  

@@ -1,0 +1,19 @@
+<div class="section">
+    <h1>Assignments</h1>
+    <p>Welcome <%= current_user.email %>!</p>
+    <ul>
+    <% @assignments.each do |assignment| %>
+    <div class="assignment-info-box">
+        <li><p>Assignment: <%= link_to assignment.title, assignment_path(assignment) %></p><p>Due date: <%= assignment.due_date %></p></li>
+    </div>
+    <% end %>
+    </ul>
+
+
+    <% if current_user.admin? %>
+        <div id="create-new-button">
+        <%= link_to "Create new assignment", new_assignment_path, class: "button-link" %>
+        </div>
+    <% end %>
+</div>
+

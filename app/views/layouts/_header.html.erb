@@ -1,0 +1,12 @@
+<!-- app/views/layouts/_header.html.erb -->
+<header>
+  <nav>
+    <img src="/assets/logo.png" alt="Logo">
+    <h1 id="title">Sapporo IT School Portal</h1>
+    <ul>
+        <% if user_signed_in? %>
+      <li id="to-right"><%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'logout-button' %></li>
+        <% end %>
+    </ul>
+  </nav>
+</header>

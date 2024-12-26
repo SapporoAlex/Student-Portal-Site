@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Assignment App" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    <!-- Include the main application stylesheet -->
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload' %>
+    
+    <!-- Security tags -->
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <!-- Additional head content -->
+    <%= yield :head %>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+    
+    <!-- JavaScript -->
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+    <!-- Flash messages -->
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
+
+    <!-- Header -->
+    <%= render 'layouts/header' %>
+
+    <!-- Main content -->
+    <%= yield %>
+
+    <!-- Footer -->
+    <%= render 'layouts/footer' %>
+  </body>
+</html>
