@@ -1,25 +1,25 @@
 class AssignmentsController < ApplicationController
   include Devise::Controllers::Helpers
+
   before_action :authenticate_user!, only: [:index, :new, :upload, :show, :destroy]
+  before_action :set_assignment, only: [:show, :upload, :destroy]  # Use before action for show and destroy
 
   def index
     @assignments = Assignment.all
   end
 
   def show
-    @assignment = Assignment.find(params[:id]) # Ensure you're getting the correct assignment
     if current_user.admin?
       # Admin can view file upload details (and download it if needed)
-      @uploaded_file = @assignment.uploads.first # Assuming only one file per assignment per user
+      @uploaded_files = @assignment.uploads
     else
       # Non-admin users can't view the file, but we can show them if they've uploaded one
       @upload = @assignment.uploads.find_by(user: current_user)
     end
   end
 
-
   def new
-    @assignment = current_user.assignments.build
+    @assignment = Assignment.new  # Create a new assignment for the current user
   end
 
   def create
@@ -36,12 +36,10 @@ class AssignmentsController < ApplicationController
     redirect_to assignments_path, notice: "Assignment was successfully deleted."
   end
 
-  # POST method for uploading a file for an assignment
   def upload
     @assignment = Assignment.find(params[:id])
 
     if current_user.student? && @assignment.uploads.where(user: current_user).empty?
-      # Ensure that the student can upload only one file per assignment
       if params[:upload][:file].present?
         @upload = @assignment.uploads.new(user: current_user, file: params[:upload][:file])
         if @upload.save
