@@ -12,7 +12,7 @@
   <% if current_user.student? %>
     <% if @assignment.uploads.where(user: current_user).empty? %>
       <h3>Upload your file</h3>
-        <%= form_with url: "/assignments/#{@assignment.id}/upload", method: :post, local: true, multipart: true do |form| %>
+        <%= form_with url: "/assignments/#{@assignment.id}/upload", method: :post, local: true, html: { enctype: "multipart/form-data" } do |form| %>
         <%= form.file_field :file %>
         <%= form.submit "Upload" %>
         <% end %>

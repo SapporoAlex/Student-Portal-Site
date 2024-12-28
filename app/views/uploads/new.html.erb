@@ -1,4 +1,4 @@
-<%= form_with model: [@assignment, @upload], local: true, multipart: true do |form| %>
+<%= form_with model: [@assignment, @upload], local: true, html: { enctype: "multipart/form-data" } do |form| %>
   <div>
     <%= form.label :file, "Choose a file to upload" %>
     <%= form.file_field :file %>

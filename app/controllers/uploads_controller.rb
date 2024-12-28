@@ -29,7 +29,10 @@ class UploadsController < ApplicationController
 
   def set_assignment
     @assignment = Assignment.find(params[:assignment_id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to assignments_path, alert: "Assignment not found."
   end
+  
 
   def upload_params
     params.require(:upload).permit(:file)
