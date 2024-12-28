@@ -41,7 +41,6 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_28_102835) do
 
   create_table "assignments", force: :cascade do |t|
     t.string "title"
-    t.integer "id", null: false, primary key
     t.text "description"
     t.datetime "due_date"
     t.integer "user_id", null: false

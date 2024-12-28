@@ -3,19 +3,22 @@
   <p><%= @assignment.description %></p>
   <p>Due: <%= @assignment.due_date %></p>
 
-<% if current_user.admin? && @assignment.uploads.any? %>
-    <p>Uploaded File: <%= link_to "Download", rails_blob_path(@assignment.uploads.first.file, disposition: "attachment") %></p>
-<% elsif current_user.admin? %>
+  <% if current_user.admin? && @assignment.uploads.any? %>
+    <% @assignment.uploads.each do |upload| %>
+      <p>Student: <%= upload.user.email %></p>
+      <p>Uploaded File: <%= link_to "Download", rails_blob_path(upload.file, disposition: "attachment") %></p>
+    <% end %>
+  <% elsif current_user.admin? %>
     <p>No file uploaded yet.</p>
-<% end %>
+  <% end %>
 
   <% if current_user.student? %>
     <% if @assignment.uploads.where(user: current_user).empty? %>
       <h3>Upload your file</h3>
-        <%= form_with url: "/assignments/#{@assignment.id}/upload", method: :post, local: true, html: { enctype: "multipart/form-data" } do |form| %>
+      <%= form_with model: @upload, url: assignment_upload_path(@assignment), method: :post, local: true do |form| %>
         <%= form.file_field :file %>
         <%= form.submit "Upload" %>
-        <% end %>
+      <% end %>
     <% else %>
       <p>Your uploaded file: <%= link_to "Download", rails_blob_path(@assignment.uploads.find_by(user: current_user).file, disposition: "attachment") %></p>
     <% end %> <!-- End file upload check -->

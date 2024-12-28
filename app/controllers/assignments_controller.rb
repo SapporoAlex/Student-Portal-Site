@@ -1,25 +1,24 @@
 class AssignmentsController < ApplicationController
-  include Devise::Controllers::Helpers
-
   before_action :authenticate_user!, only: [:index, :new, :upload, :show, :destroy]
-  before_action :set_assignment, only: [:show, :upload, :destroy]  # Use before action for show and destroy
+  # before_action :set_assignment, only: [:show, :upload, :destroy]
 
   def index
     @assignments = Assignment.all
   end
 
   def show
+    @assignment = Assignment.find(params[:id])
     if current_user.admin?
-      # Admin can view file upload details (and download it if needed)
       @uploaded_files = @assignment.uploads
+    elsif current_user.student?
+      @upload = @assignment.uploads.new(user: current_user)
     else
-      # Non-admin users can't view the file, but we can show them if they've uploaded one
-      @upload = @assignment.uploads.find_by(user: current_user)
+      redirect_to assignments_path, alert: "You are not authorized to view this assignment."
     end
   end
 
   def new
-    @assignment = Assignment.new  # Create a new assignment for the current user
+    @assignment = Assignment.new
   end
 
   def create
@@ -37,21 +36,16 @@ class AssignmentsController < ApplicationController
   end
 
   def upload
-    @assignment = Assignment.find(params[:id])
-
-    if current_user.student? && @assignment.uploads.where(user: current_user).empty?
-      if params[:upload][:file].present?
-        @upload = @assignment.uploads.new(user: current_user, file: params[:upload][:file])
-        if @upload.save
-          redirect_to @assignment, notice: "File uploaded successfully!"
-        else
-          redirect_to @assignment, alert: "Failed to upload file."
-        end
-      else
-        redirect_to @assignment, alert: "Please choose a file to upload."
-      end
+    @assignment = Assignment.find(params[:assignment_id])
+    @upload = @assignment.uploads.new(upload_params)
+    @upload.user = current_user
+    
+    if @upload.save
+      flash[:success] = "File uploaded successfully!"
+      redirect_to assignment_path(@assignment)
     else
-      redirect_to @assignment, alert: "You can only upload one file per assignment."
+      flash[:error] = "There was an issue uploading your file."
+      render :show
     end
   end
 
@@ -59,12 +53,17 @@ class AssignmentsController < ApplicationController
 
   def set_assignment
     @assignment = Assignment.find_by(id: params[:id])
-    if @assignment.nil?
-      redirect_to assignments_path, alert: "Assignment not found."
+    unless @assignment
+      flash[:alert] = "Assignment not found."
+      redirect_to root_path
     end
   end
 
   def assignment_params
     params.require(:assignment).permit(:title, :description, :due_date)
   end
+end
+
+def upload_params
+  params.require(:upload).permit(:file)
 end
