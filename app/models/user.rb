@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :assignments
+  has_many :uploads
 
   # Check if the user is an admin
   def admin?

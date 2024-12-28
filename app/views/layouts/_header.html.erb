@@ -1,7 +1,8 @@
 <!-- app/views/layouts/_header.html.erb -->
 <header>
   <nav>
-    <img src="/assets/logo.png" alt="Logo">
+<%= image_tag("logo.png", alt: "Logo") %>
+
     <h1 id="title">Sapporo IT School Portal</h1>
     <ul>
         <% if user_signed_in? %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_26_044345) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_28_102835) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -49,6 +49,15 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_26_044345) do
     t.index ["user_id"], name: "index_assignments_on_user_id"
   end
 
+  create_table "uploads", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "assignment_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["assignment_id"], name: "index_uploads_on_assignment_id"
+    t.index ["user_id"], name: "index_uploads_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -67,4 +76,6 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_26_044345) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "assignments", "users"
+  add_foreign_key "uploads", "assignments"
+  add_foreign_key "uploads", "users"
 end

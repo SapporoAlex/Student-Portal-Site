@@ -1,5 +1,5 @@
 class Assignment < ApplicationRecord
   belongs_to :user
-  has_one_attached :mpeg_file
+  has_many :uploads
   validates :title, :description, :due_date, presence: true
 end
