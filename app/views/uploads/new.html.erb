@@ -1,0 +1,18 @@
+<%= form_with model: [@assignment, @upload], local: true, multipart: true do |form| %>
+  <div>
+    <%= form.label :file, "Choose a file to upload" %>
+    <%= form.file_field :file %>
+  </div>
+
+  <div>
+    <%= form.submit "Upload File" %>
+  </div>
+<% end %>
+
+<% if @upload.errors.any? %>
+  <ul>
+    <% @upload.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
