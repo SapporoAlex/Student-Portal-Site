@@ -5,8 +5,10 @@
 
   <% if current_user.admin? && @assignment.uploads.any? %>
     <% @assignment.uploads.each do |upload| %>
+    <div class="small-section">
       <p>Student: <%= upload.user.email %></p>
       <p>Uploaded File: <%= link_to "Download", rails_blob_path(upload.file, disposition: "attachment") %></p>
+    </div>
     <% end %>
   <% elsif current_user.admin? %>
     <p>No file uploaded yet.</p>

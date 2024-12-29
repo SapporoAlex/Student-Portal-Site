@@ -1,6 +1,6 @@
 class AssignmentsController < ApplicationController
   before_action :authenticate_user!, only: [:index, :new, :upload, :show, :destroy]
-  # before_action :set_assignment, only: [:show, :upload, :destroy]
+  before_action :set_assignment, only: [:destroy]
 
   def index
     @assignments = Assignment.all

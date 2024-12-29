@@ -133,6 +133,17 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
     font-family: 'Roboto', sans-serif; /* Modern font */
   }
+
+  .small-section {
+    background-color: #1c1c1c;        /* Dark gray background for contrast */
+    border: 2px solid gold;           /* Gold border to match the theme */
+    border-radius: 8px;               /* Rounded corners */
+    padding: 1rem;                    /* Padding around the form */
+    margin: 1rem auto;                /* Center the form with margin */
+    width: 70%;                       /* Form takes up 50% of the width */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    font-family: 'Roboto', sans-serif; /* Modern font */
+  }
   
   h1 {
     color: gold;                      /* Gold color for the title */
