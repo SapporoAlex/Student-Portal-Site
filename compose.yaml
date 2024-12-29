@@ -1,0 +1,30 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000" # Expose Rails server on port 3000
+    volumes:
+      - .:/app # Sync current directory with the container for live updates
+    depends_on:
+      - db # Ensure the database starts before the Rails app
+    environment:
+      DATABASE_HOST: db
+      DATABASE_PORT: 5432
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: example
+      DATABASE_NAME: example
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails server -b 0.0.0.0"
+
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: example
+      POSTGRES_DB: example
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
