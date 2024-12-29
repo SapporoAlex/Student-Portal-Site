@@ -1,4 +1,4 @@
-# **Assignment Submission Platform**
+# **Student Portal Site**
 
 This is a web application built using Ruby on Rails to manage assignments and submissions. The platform allows teachers (admins) to create assignments and view student submissions. Students can upload files to assignments created by their teachers.
 
@@ -8,22 +8,22 @@ This is a web application built using Ruby on Rails to manage assignments and su
 
 ### Admin (Teacher) Features
 - Create, edit, and delete assignments.
-<img src="https://github.com/SapporoAlex/Student-Portal-Site/blob/master/create.jpg" width="300px" height="auto">
+<img src="https://github.com/SapporoAlex/Student-Portal-Site/blob/master/create.jpg" width="500px" height="auto">
 - View all student submissions for each assignment.
-<img src="https://github.com/SapporoAlex/Student-Portal-Site/blob/master/admin.jpg" width="300px" height="auto">
+<img src="https://github.com/SapporoAlex/Student-Portal-Site/blob/master/admin.jpg" width="500px" height="auto">
 
 ### Student Features
 
 - View available assignments.
-<img src="https://github.com/SapporoAlex/Student-Portal-Site/blob/master/list.jpg" width="300px" height="auto">
+<img src="https://github.com/SapporoAlex/Student-Portal-Site/blob/master/list.jpg" width="500px" height="auto">
 
 - Upload files to specific assignments.
-<img src="https://github.com/SapporoAlex/Student-Portal-Site/blob/master/uploaded.jpg" width="300px" height="auto">
+<img src="https://github.com/SapporoAlex/Student-Portal-Site/blob/master/uploaded.jpg" width="500px" height="auto">
 
 ### Authentication
 - User authentication is handled using [Devise](https://github.com/heartcombo/devise).
 - Admins and students have different permissions.
-<img src="https://github.com/SapporoAlex/Student-Portal-Site/blob/master/login.jpg" width="300px" height="auto">
+<img src="https://github.com/SapporoAlex/Student-Portal-Site/blob/master/login.jpg" width="500px" height="auto">
 
 ---
 
