@@ -246,6 +246,40 @@ body {
     border-color: darkgoldenrod;     /* Match border to background on hover */
   }
 
+  .delete-button-link {
+    margin-top: 10px;
+    display: block;              /* Make the link fill the container */
+    padding: 0.75rem 1.5rem;     /* Add padding for a button-like appearance */
+    background-color: red;      /* Button color */
+    color: #1c1c1c;              /* Text color (black) */
+    font-family: 'Roboto', sans-serif; /* Modern font */
+    font-weight: bold;           /* Bold text */
+    text-align: center;          /* Center-align the text */
+    text-decoration: none;       /* Remove underline */
+    border: 2px solid red;      /* Border matching the button color */
+    border-radius: 8px;          /* Rounded corners */
+    transition: all 0.3s ease;   /* Smooth hover effect */
+    cursor: pointer;             /* Pointer cursor for clickability */
+  }
+  
+  .delete-button-link:hover {
+    background-color: darkred; /* Darker gold on hover */
+    color: white;                    /* Change text to white for contrast */
+    border-color: darkred;     /* Match border to background on hover */
+  }
+
+  .two-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .two-options .button-link {
+    text-align: center;
+    font-size: 18px;
+  }
+
   #title {
     font-size: 2.5em; /* Larger font size for the title */
     font-weight: bold; /* Bold title */

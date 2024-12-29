@@ -26,9 +26,9 @@
       <%= form.datetime_select :due_date %>
     </div>
 
-    <div>
-      <%= form.submit "Create Assignment" %>
-      <%= link_to "Back to Assignments", assignments_path %>
+    <div class="two-options">
+      <%= form.submit "Create", class: "button-link" %>
+      <%= link_to "Back", assignments_path, class: "button-link" %>
     </div>
 
   <% end %>

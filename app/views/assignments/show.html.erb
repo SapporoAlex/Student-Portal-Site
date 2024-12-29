@@ -7,7 +7,7 @@
     <% @assignment.uploads.each do |upload| %>
     <div class="small-section">
       <p>Student: <%= upload.user.email %></p>
-      <p>Uploaded File: <%= link_to "Download", rails_blob_path(upload.file, disposition: "attachment") %></p>
+      <p>Uploaded File: <%= link_to "Download", rails_blob_path(upload.file, disposition: "attachment", class: "button-link") %></p>
     </div>
     <% end %>
   <% elsif current_user.admin? %>
@@ -19,16 +19,16 @@
       <h3>Upload your file</h3>
       <%= form_with model: @upload, url: assignment_upload_path(@assignment), method: :post, local: true do |form| %>
         <%= form.file_field :file %>
-        <%= form.submit "Upload" %>
+        <%= form.submit "Upload", class: "button-link" %>
       <% end %>
     <% else %>
-      <p>Your uploaded file: <%= link_to "Download", rails_blob_path(@assignment.uploads.find_by(user: current_user).file, disposition: "attachment") %></p>
+      <p>Your uploaded file: <%= link_to "Download", rails_blob_path(@assignment.uploads.find_by(user: current_user).file, disposition: "attachment", class: "button-link") %></p>
     <% end %> <!-- End file upload check -->
   <% end %> <!-- End student check -->
 
-  <%= link_to "Back to Assignments", assignments_path %>
+  <%= link_to "Back", assignments_path, class: "button-link"%>
 
   <% if current_user.admin? %>
-    <%= button_to 'Delete Assignment', assignment_path(@assignment), method: :delete, data: { confirm: "Are you sure you want to delete this assignment?" }, class: 'delete-button' %>
+    <%= button_to 'Delete Assignment', assignment_path(@assignment), method: :delete, data: { confirm: "Are you sure you want to delete this assignment?" }, class: "delete-button-link" %>
   <% end %> <!-- End admin check for delete -->
 </div>

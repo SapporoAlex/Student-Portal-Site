@@ -4,6 +4,13 @@
     <ul>
     <% @assignments.each do |assignment| %>
     <div class="assignment-info-box">
+        <% if current_user.student? && assignment.uploads.any? %>
+            <div><h2>🗹 Assignment Complete</h2>
+            </div>
+        <% elsif current_user.student? && assignment.uploads.none? %>
+            <div><h2>☐ Assignment Incomplete</h2>
+            </div>
+        <% end %>
         <li><p>Assignment: <%= link_to assignment.title, assignment_path(assignment) %></p><p>Due date: <%= assignment.due_date %></p></li>
     </div>
     <% end %>
