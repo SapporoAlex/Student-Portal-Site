@@ -15,7 +15,8 @@ services:
       DATABASE_USER: postgres
       DATABASE_PASSWORD: example
       DATABASE_NAME: example
-    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails server -b 0.0.0.0"
+    command: ["bash", "-c", "rails db:create && rm -f tmp/pids/server.pid && bundle exec rails server -b 0.0.0.0"]
+
 
   db:
     image: postgres:latest
